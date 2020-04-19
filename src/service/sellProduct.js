@@ -1,6 +1,6 @@
 export default function sellProduct(product, amount){
     console.log('product :', product);
-    product.stock -= 1;
+    product.stock -= amount;
     console.log('product :', product);
     return product;
 }
