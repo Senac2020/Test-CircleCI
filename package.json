@@ -1,0 +1,36 @@
+{
+  "name": "sucrase-jest-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^25.2.1",
+    "express": "^4.17.1",
+    "sucrase": "^3.13.0"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "faker": "^4.1.0",
+    "jest": "^25.3.0",
+    "nodemon": "^2.0.3"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "js": "node -r sucrase/register"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
+  }
+}
